@@ -36,8 +36,9 @@
 body {
     font-family: Poppins;
     background-color: #311d4a;
-    /* backdrop-filter: blur(70px); */
+    backdrop-filter: blur(70px);
     overflow: hidden;
+    overflow-x: hidden;
 }
 
 
@@ -77,7 +78,7 @@ header ul {
 .logo h1 {
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 2em;
+    font-size: 1.7em;
     text-shadow: 0 0 9px white;
 
 }
@@ -125,17 +126,21 @@ a:visited {
     }
 }
 
-.Carousel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 800px;
-    height: 100vh;
-    margin-top: -50px;
+.Carousel,
+header {
     position: relative;
     margin: auto;
     width: 1200px;
     max-width: 90%;
+}
+
+.Carousel {
+    margin-top: 50px;
+    height: 400px;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .carousel-items {
@@ -154,19 +159,20 @@ a:visited {
     position: absolute;
     left: 0;
     top: 0;
-    width: 90%;
+    width: 100%;
     height: 100%;
     font-size: 15px;
 
-    img {
-        width: 50%;
-        max-width: 100%;
-        max-height: 100%;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-    }
+}
+
+li img {
+    width: 28%;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 
@@ -227,18 +233,21 @@ article {
     top: 50%;
     transform: translateY(-50%);
     width: 400px;
+    max-width: 250px;
     left: 0;
     color: white;
+    z-index: 10;
+    background-color: transparent;
 }
 
 article h3 {
     font-weight: normal;
-    font-size: 25px;
+    font-size: 20px;
     text-shadow: 0 0 7px white;
 }
 
 article h2 {
-    font-size: 50px;
+    font-size: 30px;
     font-weight: 600;
     margin: 6px 0 6px 4px;
     text-shadow: 0 0 7px white;
@@ -246,7 +255,7 @@ article h2 {
 
 article p {
     text-shadow: 0 0 7px white;
-    font-size: small;
+    font-size: 12px;
 }
 
 .arrows {
@@ -258,7 +267,7 @@ article p {
     width: 1200px;
     max-width: 90%;
     position: absolute;
-    bottom: 80px;
+    bottom: 60px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -272,7 +281,7 @@ article p {
     border: none;
     border-bottom: 1px solid #aaa;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     text-transform: capitalize;
     color: white;
     outline: none;
@@ -297,8 +306,8 @@ article p {
 .left,
 .right {
     /* position: absolute; */
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: transparent;
     border-radius: 50%;
     display: flex;
@@ -333,6 +342,7 @@ img {
     opacity: 0;
     text-shadow: 0 0 7px white;
     color: white;
+
 }
 
 .carousel-items li:nth-child(2) article h3,
@@ -460,6 +470,7 @@ img {
 
 .Carousel.showDetail li:nth-child(2) img {
     right: 50%;
+    width: 50%;
 }
 
 .Carousel.showDetail li:nth-child(2) .details {
@@ -579,6 +590,24 @@ img {
 }
 
 @media screen and (max-width:991px) {
+    header {
+        max-width: 96%;
+
+    }
+
+
+    .Carousel li img {
+        width: 25%;
+        height: 255px;
+    }
+
+    .seeMore {
+        font-size: 15px;
+        z-index: 8;
+    }
+
+
+
     .Carousel li {
         width: 90%;
     }
@@ -586,17 +615,98 @@ img {
     .spes {
         overflow: auto;
     }
+
+    .left,
+    .right {
+        width: 30px;
+        height: 30px;
+
+    }
+
+    .Carousel.showDetail .BackButton {
+        width: 30px;
+        height: 30px;
+        font-size: 11px;
+    }
+
+    .title h2 {
+        font-size: 14px;
+    }
+
+    .des {
+        font-size: 14px;
+        height: 104px;
+        overflow-Y: hidden;
+    }
+
+    .spes {
+        font-size: 10px;
+        gap: 0;
+        margin-top: 0;
+    }
+
+
+    .checkout {
+        width: 160px;
+        height: 50px;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .checkout button:first-child {
+        width: 80px;
+        font-size: 6px;
+        padding: 3px 6px;
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100%;
+        align-items: center;
+        padding-top: 50px;
+    }
 }
 
 @media screen and (max-width:767px) {
+
+    .Carousel.showDetail .checkout button {
+        padding: 5px 1px !important;
+        font-size: 8px !important;
+        background: white !important;
+        color: black !important;
+        filter: drop-shadow(2px 4px 6px #7f197f) !important;
+        width: 60px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .Carousel.showDetail .checkout button:nth-child(2) {
+        background-color: #693eff !important;
+        color: white !important;
+    }
+
+    nav ul li a h4 {
+        font-size: 10px;
+    }
+
+
     .Carousel li {
         width: 100%;
         font-size: 16px;
         height: 600px;
+        max-height: 100%;
     }
 
+
     .Carousel {
-        width: 100%;
+        margin-top: 0;
+        overflow: hidden;
+        max-width: 100%;
+        max-height: 100dvh;
     }
 
     .Carousel ul {
@@ -605,30 +715,38 @@ img {
 
     .Carousel li article {
         width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: self-start;
+        font-size: 18px;
 
     }
 
     .Carousel li article h3 {
-        font-size: 1.5em;
+        font-size: 1em;
         width: fit-content;
     }
 
     .Carousel li article h2 {
-        font-size: 2em;
+        font-size: 1em;
     }
 
-    .Carousel li img {
-        width: 40%;
+    .Carousel li article p {
+        font-size: 12px;
+        width: 100%;
+        height: 120px;
+        overflow: hidden;
     }
+
+
 
     .title {
         font-size: 1em;
     }
 
-    .des {
-        height: 100px;
-        overflow-Y: auto;
-    }
+
 
     .checkout {
         display: flex;
@@ -637,7 +755,7 @@ img {
     }
 
     header .logo h1 {
-        font-size: 14px;
+        font-size: 9px;
     }
 
     header nav li {
