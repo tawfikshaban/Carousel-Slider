@@ -267,7 +267,7 @@ article p {
     width: 1200px;
     max-width: 90%;
     position: absolute;
-    bottom: 0;
+    bottom: 155px;
     left: 50%;
     transform: translateX(-50%);
 }
